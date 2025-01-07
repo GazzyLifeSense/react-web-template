@@ -1,3 +1,12 @@
+/* 引入tailwind样式 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  img {
+    display: inherit;
+  }
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
