@@ -1,8 +1,18 @@
 import { useRef, useState } from "react"
 import { flushSync } from "react-dom"
-
+import { useParams } from "react-router"
 /* ref管理列表*/
-
+export function CatList() {
+  const params = useParams()
+  switch (params.id) {
+    case "1":
+      return <CatList1 />
+    case "2":
+      return <CatList2 />
+    default:
+      return <b>CatList id not exist~</b>
+  }
+}
 // 方法一：使用ref存储当前指向节点
 export function CatList1() {
   const selectedRef = useRef<HTMLLIElement>(null)
@@ -31,15 +41,18 @@ export function CatList1() {
         </button>
       </nav>
       <div>
-        <ul style={{ display: "flex", maxWidth: "100vw", overflowX: "scroll" }}>
+        <ul
+          className={"mx-auto flex items-center max-w-[400px] overflow-x-auto"}
+        >
           {catList.map((cat, i) => (
             <li
+              className={"shrink-0"}
               key={cat.id}
               ref={index === i ? selectedRef : null}
               style={index === i ? { border: "10px solid skyblue" } : undefined}
             >
               <img
-                className={index === i ? "active" : ""}
+                className={(index === i ? "active" : "") + " w-20"}
                 src={cat.imageUrl}
                 alt={"猫猫 #" + cat.id}
               />
@@ -78,10 +91,13 @@ export function CatList2() {
         </button>
       </nav>
       <div>
-        <ul style={{ display: "flex", maxWidth: "100vw", overflowX: "scroll" }}>
+        <ul
+          className={"mx-auto flex items-center max-w-[400px] overflow-x-auto"}
+        >
           {catList.map((cat, i) => {
             const node = (
               <li
+                className={"shrink-0"}
                 key={cat.id}
                 ref={node => {
                   const map = itemRefs.current
@@ -93,7 +109,7 @@ export function CatList2() {
                 }}
               >
                 <img
-                  className={index === i ? "active" : ""}
+                  className={(index === i ? "active" : "") + " w-20"}
                   src={cat.imageUrl}
                   style={
                     index === i ? { border: "10px solid skyblue" } : undefined
@@ -116,6 +132,6 @@ const catList: { id: number; imageUrl: string }[] = []
 for (let i = 0; i < 10; i++) {
   catList.push({
     id: i,
-    imageUrl: "https://loremflickr.com/250/200/cat?lock=" + i
+    imageUrl: "/vite.svg?n=" + i
   })
 }
