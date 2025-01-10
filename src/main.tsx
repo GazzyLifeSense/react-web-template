@@ -8,6 +8,8 @@ import Form from "./sample/Form.tsx"
 import EditProfile from "./sample/EditProfile.tsx"
 import { CatList } from "./sample/CatList.tsx"
 import { NotFound } from "./components/NotFound.tsx"
+import ReducerDemo from "./sample/Reducer.tsx"
+import ReduxDemo from "./sample/Redux.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -18,6 +20,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/sample">
           <Route index element={<Canvas />} />
           <Route path="CatList/:id?" element={<CatList />} />
+          <Route path="Reducer" element={<ReducerDemo />} />
+          <Route path="Redux" element={<ReduxDemo />} />
         </Route>
 
         <Route

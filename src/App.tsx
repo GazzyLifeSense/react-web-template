@@ -31,6 +31,10 @@ function App() {
           <br />
           <Link to="/sample">try sample</Link>
           <br />
+          <Link to="/sample/Reducer">try reducer</Link>
+          <br />
+          <Link to="/sample/Redux">try redux</Link>
+          <br />
           <button onClick={() => navigate("/notExist")}>nav to 404</button>
         </nav>
       </div>
