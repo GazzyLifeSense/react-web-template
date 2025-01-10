@@ -60,7 +60,7 @@ export default function ReducerDemo() {
       <button onClick={() => dispatch(addTodo(todoInput))}>Add</button>
       <ul>
         {todos.map(todo => (
-          <li className={!todo.completed ? "" : "line-through"}>
+          <li className={!todo.completed ? "" : "line-through"} key={todo.id}>
             <input
               type="checkbox"
               checked={todo.completed}

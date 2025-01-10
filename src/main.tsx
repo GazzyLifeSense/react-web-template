@@ -10,33 +10,37 @@ import { CatList } from "./sample/CatList.tsx"
 import { NotFound } from "./components/NotFound.tsx"
 import ReducerDemo from "./sample/Reducer.tsx"
 import ReduxDemo from "./sample/Redux.tsx"
+import { Provider } from "react-redux"
+import { store } from "./store.ts"
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <StrictMode>
-      <Routes>
-        <Route path="/" element={<App />} />
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<App />} />
 
-        <Route path="/sample">
-          <Route index element={<Canvas />} />
-          <Route path="CatList/:id?" element={<CatList />} />
-          <Route path="Reducer" element={<ReducerDemo />} />
-          <Route path="Redux" element={<ReduxDemo />} />
-        </Route>
+          <Route path="/sample">
+            <Route index element={<Canvas />} />
+            <Route path="CatList/:id?" element={<CatList />} />
+            <Route path="Reducer" element={<ReducerDemo />} />
+            <Route path="Redux" element={<ReduxDemo />} />
+          </Route>
 
-        <Route
-          element={
-            <div id="other-container">
-              <Outlet />
-            </div>
-          }
-        >
-          <Route path="form" element={<Form />} />
-          <Route path="profile" element={<EditProfile />} />
-        </Route>
+          <Route
+            element={
+              <div id="other-container">
+                <Outlet />
+              </div>
+            }
+          >
+            <Route path="form" element={<Form />} />
+            <Route path="profile" element={<EditProfile />} />
+          </Route>
 
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </Provider>
     </StrictMode>
   </BrowserRouter>
 )
