@@ -6,11 +6,27 @@ Without complex configuration, simple and easy to use.
 
 ## Integrate
 
-### Web Dev Core Repo
+### Web Dev Core Package
 
-- React18
-- Vite6
-- TypeScript
+- ⚡️ React18
+- ⚡️ Vite6 Hot Module Replacement (HMR)
+- 🔒 TypeScript
+- ⚡️ React Router
+- ⚡️ Redux
+
+### UI
+
+- 🎉 TailwindCSS
+
+### Compatibility
+
+- autoprefixer
+
+### Lint and formatter
+
+- eslint
+- prettier
+- stylelint
 
 ## Usage
 
